@@ -37,7 +37,7 @@ while True: # Wait for the packets
     if clients[f'{addr[0]}:{addr[1]}'] > length:
         pass # Should not happen
     else:
-        for packet in save_as[clients[f'{addr[0]}:{addr[1]}']:]:
+        for packet in packets[clients[f'{addr[0]}:{addr[1]}']:]:
             if packet['from_server']:
                 sock.sendto(bytes.fromhex(packet['payload']), addr)
             if not packet['from_server']:
